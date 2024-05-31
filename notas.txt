@@ -1,0 +1,39 @@
+El . (punto) concatena en las plantillas de blade. Sirve para concatenar las variables
+
+{{}} (doble llaves) para llamar variables y usar lo menos posible php
+
+php artisan migrate:fresh = refresca las tablas al agregar algo nuevo. Este comando elimina las tablas y
+las vuelve a crear, asique no es recomendable usarlo si las tablas tienen datos en ellas
+
+php artisan make:migration create_nameOfTable_table = crea tablas
+
+php artisan migrate:rollback = elimina las tablas de la base de datos
+
+php artisan make:migration add_nombreColumna_to_nombreTabla_table = Crea una columna en una
+tabla existente. Ver el siguiente video para entenderlo 
+ https://codersfree.com/courses-status/aprende-laravel-desde-cero/como-modificar-tablas-con-las-migraciones-de-laravel
+
+Modificacion de propiedades de columnas:
+
+    creamos una migracion siguiendo esta convencion: 
+        php artisan make:migration change_propiedades_to_nombreTabla_table 
+    dentro del archivo usamos la propiedad change:
+            Schema::table('users', function (Blueprint $table) {
+                $table->string('name', 50);
+            });
+    por ejemplo, en el codigo la propiedad name tiene 50 caracteres y queremos aumentar el limite,
+    entonces hacemos lo siguiente:
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('name', 100)->change();
+        });
+
+    el ->change() permite ese cambio.
+    usando esto, a las columnas se les pueden agregar mas modificaciones como en el siguiente ejemplo:
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('votes')->unsigned()->default(1)->comment('my comment')->change();
+        });
+
+    En la funcion/metodo down, para revertir los cambios se colocan las propiedades a su estado original.
+    Para eliminar una columna, se usa el $table->dorpTable('columnName'); en la funcion/metodo.
+
+**Buscar un video de laravel 11 que explique las modificaciones en las tablas sin que se borren los datos

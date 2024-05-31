@@ -17,10 +17,15 @@ Route::get('logout', function () {
 
 Route::get('category', [CategoryController::class,'getIndex']);
 
-Route::get('category/show/{id}', [CategoryController::class,'getShow']);
+Route::controller(CategoryController::class)->group(function(){
 
-Route::get('category/create', [CategoryController::class, 'getCreate']);
+    Route::get('category/show/{id}', 'getShow');
 
-Route::get('category/edit/{id}', [CategoryController::class,'getEdit']);
+    Route::get('category/create', 'getCreate');
+
+    Route::get('category/edit/{id}', 'getEdit');
+
+});
+
 
 

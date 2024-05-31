@@ -12,7 +12,7 @@ class CategoryController extends Controller
     }
 
     public function getShow($id){
-        return view('category/show');
+        return view('category/show', ['id'=>$id]);
     }
 
     public function getCreate(){
@@ -20,7 +20,7 @@ class CategoryController extends Controller
     }
 
     public function getEdit($id){
-        return view('category/edit');
+        return view('category/edit', ['id'=>$id]);
     }
     
 }
