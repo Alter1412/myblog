@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('poster');
-            $table->boolean('Habilitated',false);
+            $table->boolean('Habilitated')->default(false);
             $table->text('content');
+            $table->string('type');
             $table->timestamps();
         });
     }

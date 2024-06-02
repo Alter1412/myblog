@@ -23,7 +23,11 @@ Route::controller(CategoryController::class)->group(function(){
 
     Route::get('category/create', 'getCreate');
 
+    Route::post('category', 'getStore');
+
     Route::get('category/edit/{id}', 'getEdit');
+
+    Route::put('category/show/{id}', 'getUpdate');
 
 });
 
