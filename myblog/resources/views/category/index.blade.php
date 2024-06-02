@@ -5,6 +5,8 @@
 @section('content')
 
 <h1>Lista Categorias  </h1>
+<a href="{{route('home')}}">Volver a Home</a>
+<br>
 <br>
 <a href="{{route('category.create')}}">Crear Post/Categoria</a>
 
