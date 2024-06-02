@@ -4,7 +4,7 @@
 
 @section('content')
 
-<a href="/pwa-tp3/myblog/myblog/public/category">Volver atras</a> {{-- ver con el profe, porque no tendria que andar asi --}}
+<a href="{{ route('category.index') }}">Volver atras</a> {{-- ver con el profe, porque no tendria que andar asi --}}
 
  {{-- Agregar el if mas adelante para diferenciar entre post habilitado y no habilitados--}}
    
@@ -21,7 +21,7 @@
     <p>{{$post->content}}</p>
     <br>
 
-    <a href="/pwa-tp3/myblog/myblog/public/category/edit/{{$post->id}}">Editar Post</a>
+    <a href="{{route('category.edit', $post->id)}}">Editar Post</a>
 
 
 @endsection

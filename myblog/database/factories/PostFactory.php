@@ -19,7 +19,7 @@ class PostFactory extends Factory
         return [
             //
             'title' => fake()->sentence(),
-            'poster' => fake()->url(),
+            'poster' => fake()->name(),
             'Habilitated' => fake()->boolean(),
             'content' => fake()->text(1000),
             'type' => fake()->word(),

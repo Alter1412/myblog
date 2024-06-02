@@ -10,7 +10,8 @@ class CategoryController extends Controller
     
     public function getIndex(){
 
-        $posts = Post::orderBy('id','desc')->get();
+        $posts = Post::orderBy('id','desc')->paginate(5);
+
         return view('category.index', compact('posts'));
     }
 
@@ -37,7 +38,8 @@ class CategoryController extends Controller
         $post->content = $request->content;
         $post->save();
 
-        return redirect('/category');
+        //return redirect('category.index');
+        return redirect()->route('category.index');
     }
 
     public function getEdit($id){
@@ -53,9 +55,31 @@ class CategoryController extends Controller
         $post->type = $request->type;
         $post->poster = $request->poster;
         $post->content = $request->content;
+
         $post->save();
 
-        return redirect()->route('category/show/'.$post->id);
+        return redirect()->route('category.update', $post->id);
+        
     }
+
+    /**
+     * metodos que se ususaran para mostrar u ocultar post
+     */
+    public function getDisabled($id){
+        $post = Post::findOrFail($id);
+        $post->Habilitated = false;
+        $post->save();
+
+        return redirect()->route('category.index');
+    }
+
+    public function getHabilitated($id){
+        $post = Post::findOrFail($id);
+        $post->Habilitated = true;
+        $post->save();
+
+        return redirect()->route('category.index');
+    }
+
     
 }

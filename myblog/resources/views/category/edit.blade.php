@@ -8,7 +8,7 @@
 <br>
 <br>
 
-<form action="category/show/{{$post->id}}" method="POST">
+<form action="{{route('category.update',$post->id)}}" method="POST">
     @method('PUT')
     @csrf
 

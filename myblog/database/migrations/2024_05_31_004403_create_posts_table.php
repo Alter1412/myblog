@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('poster');
+            $table->string('poster');//usuario quien creo el post
             $table->boolean('Habilitated')->default(false);
             $table->text('content');
             $table->string('type');

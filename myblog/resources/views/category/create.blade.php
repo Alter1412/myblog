@@ -8,7 +8,7 @@ Crear Categoria:
 <br>
 <br>
 
-<form action="/pwa-tp3/myblog/myblog/public/category" method="POST">
+<form action="{{route('category.store')}}" method="POST">
 
     @csrf
 
