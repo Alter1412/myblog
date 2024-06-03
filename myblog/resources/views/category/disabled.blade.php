@@ -9,15 +9,19 @@
 <br>
 <br>
 <a href="{{route('category.create')}}">Crear Post/Categoria</a>
+{{/*Pagina que muestra los post que tengan Habiitated en false*/}}
 
 <ul>
     @foreach ($posts as $post)
+    @if ($post->Habilitated == false)
 
     <li>
         <a href="{{route('category.show',$post->id)}}">{{$post->title}}</a>
-     {{--ver si al crear un enlace con $post->id como botones redirecciona a la pagina edit o lo borra 
-        directamente--}}
+        {{--ver si al crear un enlace con $post->id como botones redirecciona a la pagina edit o lo borra 
+            directamente--}}
     </li>
+    
+    @endif
     
     @endforeach
 
@@ -26,5 +30,3 @@
 {{$posts->links()}}
 
 @endsection
-
-
