@@ -30,6 +30,7 @@ Route::controller(CategoryController::class)->group(function(){
 
     Route::put('category/show/{id}', 'getUpdate')->name('category.update');
 
+
 });
 /* 
 Route::get('/', function () {
