@@ -1,11 +1,23 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 Route::get('/', [HomeController::class, 'getHome'])->name('home');
+Route::get('/', function(){
+    return view('welcome');
+});
 
+Route::view('/','home');
+Route::view('login','login')->name('login')->middleware('guest');
+Route::view('dashboard','dashboard')->middleware('auth');
+
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout']);
 /*
 mas adelante
 Route::get('login', function () {
