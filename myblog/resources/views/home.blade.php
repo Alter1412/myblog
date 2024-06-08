@@ -1,3 +1,4 @@
+@include('partials.nav')
 @extends('layouts.template')
 
 @section('title', 'Home')

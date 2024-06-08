@@ -3,7 +3,8 @@
     @auth hace lo contrario, muestra los links que queremos que vea un user logeado
 --}}
 @guest
-  <a href="/login">Login</a> 
+  <a href="/login">Login</a>
+  <a href="{{route('register')}}">Register</a>
 @else
     <a href="/dashboard">Dashboard</a>
 
