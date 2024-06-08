@@ -18,14 +18,7 @@ Route::view('dashboard','dashboard')->middleware('auth');
 
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
-/*
-mas adelante
-Route::get('login', function () {
-    return view('login');
-});
-Route::get('logout', function () {
-    return view('logout');
-}); */
+
 
 Route::get('category', [CategoryController::class,'getIndex'])->name('category.index');
 
