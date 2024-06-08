@@ -22,9 +22,6 @@
     <br>
 
     <a href="{{route('category.edit', $post->id)}}">Editar Post</a>
-    <br>
-    <br>
-  
 
 
 @endsection

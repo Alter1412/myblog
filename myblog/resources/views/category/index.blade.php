@@ -12,13 +12,12 @@
 
 <ul>
     @foreach ($posts as $post)
-        @if ($post->Habilitated )
-            <li>
-                <a href="{{route('category.show',$post->id)}}">{{$post->title}}</a>
-            {{--ver si al crear un enlace con $post->id como botones redirecciona a la pagina edit o lo borra 
-                directamente--}}
-            </li>
-        @endif
+
+    <li>
+        <a href="{{route('category.show',$post->id)}}">{{$post->title}}</a>
+     {{--ver si al crear un enlace con $post->id como botones redirecciona a la pagina edit o lo borra 
+        directamente--}}
+    </li>
     
     @endforeach
 

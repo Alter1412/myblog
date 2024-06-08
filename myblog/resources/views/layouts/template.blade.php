@@ -7,38 +7,6 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header >
-        <div >
-            <svg ></svg>
-        </div>
-        @if (Route::has('login'))
-            <nav >
-                @auth
-                    <a
-                        href="{{ url('/dashboard') }}"
-                        
-                    >
-                        Dashboard
-                    </a>
-                @else
-                    <a
-                        href="{{ route('login') }}"
-                    >
-                        Log in  
-                    </a>
-
-                    @if (Route::has('register'))
-                        <a
-                            href="{{ route('register') }}"
-                        >
-                            Register
-                        </a>
-                    @endif
-                @endauth
-            </nav>
-        @endif
-    </header>
-
     @yield('content')
 </body>
 </html>
